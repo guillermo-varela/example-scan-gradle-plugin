@@ -3,6 +3,10 @@ plugins {
   id 'org.sonatype.gradle.plugins.scan' version '1.0.1'
 }
 
+ossIndexAudit {
+  cacheDirectory = '~/.ossIndexCache' // Optional to avoid depending on OS-specific filesystems on CI
+}
+
 repositories {
   mavenCentral()
 }
