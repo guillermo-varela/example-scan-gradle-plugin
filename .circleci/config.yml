@@ -1,5 +1,9 @@
 version: 2.1
 
+# Optional: use the Gradle ORB to leverage dependencies cache
+orbs:
+  gradle: circleci/gradle@2.1.0
+
 executors:
   openjdk-8-executor:
     docker:
@@ -9,8 +13,12 @@ jobs:
   run-oss-index-audit:
     executor: openjdk-8-executor
     steps:
-      - run: ls
-      - run: pwd
+      - checkout # check out source code to working directory
+      - gradle/with_cache:
+          steps:
+            - run:
+                name: ossIndexAudit
+                command: ./gradlew ossIndexAudit --info
 
 # Orchestrate or schedule a set of jobs
 workflows:
