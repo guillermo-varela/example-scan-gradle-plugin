@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout # check out source code to working directory
       - restore_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
-          key: ossindex-gradle-cache-{{ checksum "build.gradle" }}
+          key: ossindex-gradle-cache
       - gradle/with_cache: # From the Gradle ORB, restore dependencies and wrapper from CircleCI cache before running the steps and saves them on success
           steps:
             - run:
@@ -25,7 +25,7 @@ jobs:
       - save_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
           paths:
             - ~/.ossIndexCache
-          key: ossindex-gradle-cache-{{ checksum "build.gradle" }}
+          key: ossindex-gradle-cache
 
 workflows:
   # Name the workflow "oss-index-audit"
