@@ -9,7 +9,8 @@ jobs:
   run-oss-index-audit:
     executor: openjdk-8-executor
     steps:
-      - run: ./gradlew ossIndexAudit --info
+      - run: ls
+      - run: pwd
 
 # Orchestrate or schedule a set of jobs
 workflows:
