@@ -18,7 +18,7 @@ jobs:
           steps:
             - run:
                 name: ossIndexAudit
-                command: ./gradlew ossIndexAudit --info --no-daemon
+                command: ./gradlew --no-daemon ossIndexAudit --info
 
 # Orchestrate or schedule a set of jobs
 workflows:
