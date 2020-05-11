@@ -21,7 +21,7 @@ jobs:
           steps:
             - run:
                 name: ossIndexAudit
-                command: ./gradlew ossIndexAudit --info --no-daemon
+                command: ./gradlew ossIndexAudit --no-daemon --info
       - save_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
           paths:
             - ~/.ossIndexCache
