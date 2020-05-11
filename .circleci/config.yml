@@ -10,20 +10,25 @@ executors:
       - image: 'circleci/openjdk:8'
 
 jobs:
+  # Name the job "run-oss-index-audit"
   run-oss-index-audit:
     executor: openjdk-8-executor
     steps:
       - checkout # check out source code to working directory
-      - gradle/with_cache:
+      - restore_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
+          key: ossindex-gradle-cache-{{ checksum "build.gradle" }}
+      - gradle/with_cache: # From the Gradle ORB, restore dependencies and wrapper from CircleCI cache before running the steps and saves them on success
           steps:
             - run:
                 name: ossIndexAudit
                 command: ./gradlew ossIndexAudit --info --no-daemon
+      - save_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
+          paths:
+            - ~/.ossIndexCache
+          key: ossindex-gradle-cache-{{ checksum "build.gradle" }}
 
-# Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "oss-index-audit"
   oss-index-audit:
-    # Run the ossIndexAudit job in its own container
     jobs:
       - run-oss-index-audit
