@@ -3,4 +3,14 @@ jdk:
   - openjdk8
 
 script:
-  - ./gradlew ossIndexAudit --no-daemon --info
+  - ./gradlew ossIndexAudit --no-daemon --info && ls $HOME/.ossIndexCache
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.ossIndexCache # Check the file "build.gradle" to see how to set the cache directory on the plugin
