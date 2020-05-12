@@ -8,6 +8,8 @@ The file [build.gradle](build.gradle) has a simple Gradle setup applying the plu
 Just apply the plugin on the root project and all sub-modules will be processed and the output will be a single report with all components found in each module, no extra configuration is required. This includes Android projects.
 
 ## Usage examples
+Up next, some examples to configure and run the plugin in several environments or CI tools. Whenever it's possible, first a minimal configuration will be linked to make the plugin run and then a second configuration showing how to leverage cache storing on each CI tool to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs.
+
 ### Locally
 Clone this repo on your machine and from the project's root folder run from Terminal/Console:
 `./gradlew ossIndexAudit --info`
@@ -32,18 +34,22 @@ Execution failed for task ':ossIndexAudit'.
 ```
 
 ### CircleCI
-A minimal configuration for CircleCI can be found at the file [.circleci/config.yml](.circleci/config.yml).
-
-In addition to that, another configuration was added to show how to leverage cache storing on CircleCI to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs: [.circleci/config-using-cache.yml](.circleci/config-using-cache.yml).
+- Minimal configuration: [.circleci/config.yml](.circleci/config.yml)
+- Cache configuration: [.circleci/config-using-cache.yml](.circleci/config-using-cache.yml)
 
 The job output can be seen at: [![CircleCI Build Status](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin)
 
 ### Travis CI
-A minimal configuration for CircleCI can be found at the file [.travis.yml](.travis.yml).
-
-In addition to that, another configuration was added to show how to leverage cache storing on Travis CI to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs: [.travis-cache.yml](.travis-cache.yml).
+- Minimal configuration: [.travis.yml](.travis.yml)
+- Cache configuration: [.travis-cache.yml](.travis-cache.yml)
 
 The job output can be seen at: [![Travis CI Build Status](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin.svg?branch=master)](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin)
+
+### GitHub Actions
+- Minimal configuration:  [.github/workflows/gradle.yml](.github/workflows/gradle.yml)
+- Cache configuration: [.github/workflows/gradle-using-cache.yml](.github/workflows/gradle-using-cache.yml)
+
+The workflows output can be seen at: https://github.com/guillermo-varela/example-scan-gradle-plugin/actions
 
 ## The Fine Print
 This repo is meant for informational purposes, copy-paste at your own risk :)
