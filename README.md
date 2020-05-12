@@ -12,6 +12,7 @@ Up next, some examples to configure and run the plugin in several environments o
 
 ### Locally
 Clone this repo on your machine and from the project's root folder run from Terminal/Console:
+
 `./gradlew ossIndexAudit --info`
 
 The output will have the list of dependencies and the vulnerabilitues found for each one (if any):
