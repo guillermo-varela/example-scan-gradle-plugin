@@ -3,10 +3,10 @@ plugins {
   id 'org.sonatype.gradle.plugins.scan' version '1.0.1'
 }
 
-/* Optional: default cache directory varies depending of the OS (user data), this can be done to set a specific path */
+/* Optional: default cache directory varies depending of the OS (user data), this can be done to set a specific path
 ossIndexAudit {
   cacheDirectory = "${System.getProperty('user.home')}/.ossIndexCache"
-}
+} */
 
 repositories {
   mavenCentral()
@@ -16,7 +16,7 @@ dependencies {
   api 'org.apache.commons:commons-math3:3.6.1'
 
   implementation 'com.google.guava:guava:28.0-jre'
-  //implementation 'com.h2database:h2:1.4.197'
+  implementation 'com.h2database:h2:1.4.197'
 
   testImplementation 'junit:junit:4.12'
 }
