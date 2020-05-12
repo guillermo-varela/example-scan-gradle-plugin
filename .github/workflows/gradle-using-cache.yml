@@ -10,20 +10,13 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 8
-    - uses: actions/cache@v1
+    - uses: actions/cache@v1 # This action only saves cache for successful jobs
       name: Gradle cache
       with:
-        path: ~/.gradle/caches
+        path: ~/.gradle/caches # Caching multiple paths, to also include OSS Index cache, will be added on actions/cache@v2
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
-    - uses: actions/cache@v1
-      name: OSS Index cache
-      with:
-        path: ~/.ossIndexCache
-        key: ${{ runner.os }}-oss-index
-        restore-keys: |
-          ${{ runner.os }}-oss-index
     - uses: eskatos/gradle-command-action@v1
       name: ossIndexAudit
       with:
