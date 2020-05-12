@@ -32,6 +32,8 @@ The job output can be seen at: [![CircleCI Build Status](https://circleci.com/gh
 ### Travis CI
 A minimal configuration for CircleCI can be found at the file [.travis.yml](.travis.yml).
 
+In addition to that, another configuration was added to show how to leverage cache storing on Travis CI to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs: [.travis-cache.yml](.travis-cache.yml).
+
 The job output can be seen at: [![Travis CI Build Status](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin.svg?branch=master)](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin)
 
 ## The Fine Print
