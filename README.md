@@ -36,6 +36,8 @@ Execution failed for task ':ossIndexAudit'.
 > Vulnerabilities detected, check log output to review them
 ```
 
+The task fails if there is at least one dependency with vulnerabilities.
+
 ### CircleCI
 - Minimal configuration: [.circleci/config.yml](.circleci/config.yml)
 - Cache configuration: [.circleci/config-using-cache.yml](.circleci/config-using-cache.yml)
