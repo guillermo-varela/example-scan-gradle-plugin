@@ -11,12 +11,21 @@ jobs:
       with:
         java-version: 8
     - uses: actions/cache@v1
+      name: Gradle cache
       with:
         path: ~/.gradle/caches
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
+    - uses: actions/cache@v1
+      name: OSS Index cache
+      with:
+        path: ~/.ossIndexCache
+        key: ${{ runner.os }}-oss-index
+        restore-keys: |
+          ${{ runner.os }}-oss-index
     - uses: eskatos/gradle-command-action@v1
+      name: ossIndexAudit
       with:
         arguments: ossIndexAudit --no-daemon --info
 
