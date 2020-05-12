@@ -3,7 +3,7 @@ jdk:
   - openjdk8
 
 script:
-  - ls $HOME/.ossIndexCache && ./gradlew ossIndexAudit --no-daemon --info
+  - ls $HOME/.ossIndexCache
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
