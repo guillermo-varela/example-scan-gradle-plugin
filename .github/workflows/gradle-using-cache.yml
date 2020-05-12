@@ -28,5 +28,3 @@ jobs:
       name: ossIndexAudit
       with:
         arguments: ossIndexAudit --no-daemon --info
-
-
