@@ -27,4 +27,12 @@ A minimal configuration for CircleCI can be found at the file [.circleci/config.
 
 In addition to that, another configuration was added to show how to leverage cache storing on CircleCI to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs: [.circleci/config-using-cache.yml](.circleci/config-using-cache.yml).
 
-The job running can be seen at: [![CircleCI Build Status](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin)
+The job output can be seen at: [![CircleCI Build Status](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/guillermo-varela/example-scan-gradle-plugin)
+
+### Travis CI
+A minimal configuration for CircleCI can be found at the file [.travis.yml](.travis.yml).
+
+The job output can be seen at: [![Travis CI Build Status](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin.svg?branch=master)](https://travis-ci.com/guillermo-varela/example-scan-gradle-plugin)
+
+## The Fine Print
+This repo is meant for informational purposes, copy-paste at your own risk :)
