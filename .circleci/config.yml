@@ -1,9 +1,5 @@
 version: 2.1
 
-# Optional: use the Gradle ORB to leverage dependencies cache
-orbs:
-  gradle: circleci/gradle@2.1.0
-
 executors:
   openjdk-8-executor:
     docker:
@@ -15,17 +11,9 @@ jobs:
     executor: openjdk-8-executor
     steps:
       - checkout # check out source code to working directory
-      - restore_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
-          key: ossindex-gradle-cache
-      - gradle/with_cache: # From the Gradle ORB, restore dependencies and wrapper from CircleCI cache before running the steps and saves them on success
-          steps:
-            - run:
-                name: ossIndexAudit
-                command: ./gradlew ossIndexAudit --no-daemon --info
-      - save_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
-          paths:
-            - ~/.ossIndexCache
-          key: ossindex-gradle-cache
+      - run
+          name: ossIndexAudit
+          command: ./gradlew ossIndexAudit --no-daemon --info
 
 workflows:
   # Name the workflow "oss-index-audit"
