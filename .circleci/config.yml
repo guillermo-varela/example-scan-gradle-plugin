@@ -1,0 +1,20 @@
+version: 2.1
+
+executors:
+  openjdk-8-executor:
+    docker:
+      - image: 'circleci/openjdk:8'
+
+jobs:
+  # Name the job "run-oss-index-audit"
+  run-oss-index-audit:
+    executor: openjdk-8-executor
+    steps:
+      - checkout # check out source code to working directory
+      - run: ./gradlew ossIndexAudit --no-daemon --info
+
+workflows:
+  # Name the workflow "oss-index-audit"
+  oss-index-audit:
+    jobs:
+      - run-oss-index-audit
