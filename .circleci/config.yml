@@ -11,9 +11,7 @@ jobs:
     executor: openjdk-8-executor
     steps:
       - checkout # check out source code to working directory
-      - run
-          name: ossIndexAudit
-          command: ./gradlew ossIndexAudit --no-daemon --info
+      - run ./gradlew ossIndexAudit --no-daemon --info
 
 workflows:
   # Name the workflow "oss-index-audit"
