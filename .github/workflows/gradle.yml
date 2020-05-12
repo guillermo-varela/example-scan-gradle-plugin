@@ -11,5 +11,4 @@ jobs:
       with:
         java-version: 8
     - name: run ossIndexAudit
-      run: |
-        ./gradlew ossIndexAudit --no-daemon --info
+      run: ./gradlew ossIndexAudit --no-daemon --info
