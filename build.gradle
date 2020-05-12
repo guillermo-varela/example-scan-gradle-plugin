@@ -3,9 +3,9 @@ plugins {
   id 'org.sonatype.gradle.plugins.scan' version '1.0.1'
 }
 
-/* Optional to avoid depending on OS-specific filesystems in CI for caching */
+/* Optional: default cache directory varies depending of the OS (user data), this can be done to set a specific path */
 ossIndexAudit {
-  cacheDirectory = '~/.ossIndexCache'
+  cacheDirectory = "${System.getProperty('user.home')}/.ossIndexCache"
 }
 
 repositories {
