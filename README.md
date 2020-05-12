@@ -23,6 +23,8 @@ com.h2database:h2:1.4.197: 2 vulnerabilities detected
 
 [CVE-2018-14335] An issue was discovered in H2 1.4.197. Insecure handling of permissions in the b... (6.5): https://ossindex.sonatype.org/vuln/d3bb2bf8-2080-4598-997a-51bbed9647fb
 ...
+<other dependencies>
+...
 > Task :ossIndexAudit FAILED
 :ossIndexAudit (Thread[Daemon worker,5,main]) completed.
 
