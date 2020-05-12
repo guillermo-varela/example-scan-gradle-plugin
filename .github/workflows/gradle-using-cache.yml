@@ -11,9 +11,9 @@ jobs:
       with:
         java-version: 8
     - uses: actions/cache@v1 # This action only saves cache for successful jobs
-      name: Gradle cache
+      name: Cache gradle dependencies
       with:
-        path: ~/.gradle/caches # Caching multiple paths, to also include OSS Index cache, will be added on actions/cache@v2
+        path: ~/.gradle/caches # Caching multiple paths, to also include OSS Index cache and Gradle wrapper, will be added on actions/cache@v2
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
