@@ -9,7 +9,8 @@ Just apply the plugin on the root project and all sub-modules will be processed 
 
 ## Usage examples
 ### Locally
-Clone this repo on your machine and from the project's root folder run from Terminal/Console: `./gradlew ossIndexAudit --info`
+Clone this repo on your machine and from the project's root folder run from Terminal/Console:
+`./gradlew ossIndexAudit --info`
 
 The output will have the list of dependencies and the vulnerabilitues found for each one (if any):
 ```
