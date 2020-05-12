@@ -24,7 +24,7 @@ jobs:
                 command: ./gradlew ossIndexAudit --no-daemon --info
       - save_cache: # Optional: cache the OSS Index data on a custom folder to avoid depending on OS-specific filesystems
           paths:
-            - ~/.ossIndexCache
+            - ~/.ossIndexCache # Check the file "build.gradle" to see how to set the cache directory on the plugin
           key: ossindex-gradle-cache
 
 workflows:
