@@ -82,5 +82,9 @@ Minimal configuration: [Jenkinsfile-ossindex](Jenkinsfile-ossindex)
 #### Nexus IQ Server
 Minimal configuration: [Jenkinsfile-iq](Jenkinsfile-iq)
 
+Here is the official Jenkins doc explainig how to configure credentials: https://www.jenkins.io/doc/book/using/using-credentials/#configuring-credentials
+
+And how to use them in the pipeline: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#usernames-and-passwords
+
 ## The Fine Print
 This repo is meant for informational purposes, copy-paste at your own risk :)
