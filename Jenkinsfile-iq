@@ -9,10 +9,7 @@ pipeline {
         IQ_CREDENTIALS = credentials('iq.credentials')
       }
       steps {
-        // Only needed if the gradle project and wrapper are in a subdirectory
-        dir('intentionally-vulnerable-gradle-project') {
-          sh './gradlew nexusIQScan  --no-daemon'
-        }
+        sh './gradlew nexusIQScan  --no-daemon'
       }
     }
   }
