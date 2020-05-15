@@ -11,7 +11,7 @@ jobs:
       with:
         java-version: 8
     #- name: run ossIndexAudit
-    #  run: ./gradlew ossIndexAudit --no-daemon --info
+    #  run: ./gradlew ossIndexAudit --no-daemon
     - uses: eskatos/gradle-command-action@v1
       with:
-        arguments: ossIndexAudit --no-daemon --info
+        arguments: ossIndexAudit --no-daemon

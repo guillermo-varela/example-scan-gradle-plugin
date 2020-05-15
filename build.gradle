@@ -1,6 +1,6 @@
 plugins {
   id 'java-library'
-  id 'org.sonatype.gradle.plugins.scan' version '1.0.1'
+  id 'org.sonatype.gradle.plugins.scan' version '1.0.3'
 }
 
 /* Optional: default cache directory varies depending of the OS (user data), this can be done to set a specific path which could be useful for CI

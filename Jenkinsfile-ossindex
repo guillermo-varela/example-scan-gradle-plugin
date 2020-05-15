@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  tools {
+    jdk 'OpenJDK 8'
+  }
+  stages {
+    stage('OSS Index Audit') {
+      steps {
+        // Only needed if the gradle project and wrapper are in a subdirectory
+        dir('intentionally-vulnerable-gradle-project') {
+          sh './gradlew ossIndexAudit  --no-daemon'
+        }
+      }
+    }
+  }
+}

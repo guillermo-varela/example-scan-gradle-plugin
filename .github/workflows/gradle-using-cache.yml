@@ -20,4 +20,4 @@ jobs:
     - uses: eskatos/gradle-command-action@v1
       name: ossIndexAudit
       with:
-        arguments: ossIndexAudit --no-daemon --info
+        arguments: ossIndexAudit --no-daemon
