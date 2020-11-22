@@ -9,10 +9,10 @@ ossIndexAudit {
 } */
 
 nexusIQScan {
-  username = 'user'
-  password = 'password'
+  username = 'user' // project['yourUsernameProperty'] or System.getenv('yourUsernameProperty') can be use to get sensitive data from project properties or environment variables
+  password = 'password' // project['yourPasswordProperty'] or System.getenv('yourPasswordProperty') can be use to get sensitive data from project properties or environment variables
   serverUrl = 'http://your-host:8070'
-  applicationId = 'test'
+  applicationId = 'app'
 }
 
 repositories {
