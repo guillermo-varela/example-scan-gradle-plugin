@@ -11,7 +11,7 @@ ossIndexAudit {
 nexusIQScan {
   username = System.getenv('IQ_CREDENTIALS_USR') // project['yourUsernameProperty'] or System.getenv('yourUsernameProperty') can be use to get sensitive data from project properties or environment variables
   password = System.getenv('IQ_CREDENTIALS_PSW') // project['yourPasswordProperty'] or System.getenv('yourPasswordProperty') can be use to get sensitive data from project properties or environment variables
-  serverUrl = 'http://your-host:8070'
+  serverUrl = 'http://localhost:8070'
   applicationId = 'app'
 }
 
