@@ -18,17 +18,27 @@ Clone this repo on your machine and from the project's root folder run from Term
 
 The output will have the list of dependencies and the vulnerabilities found for each one (if any):
 ```
-Checking vulnerabilities in 10 artifacts
-com.google.j2objc:j2objc-annotations:1.3: 0 vulnerabilities detected
-com.h2database:h2:1.4.197: 2 vulnerabilities detected
-[CVE-2018-10054]  Improper Input Validation (8.8): https://ossindex.sonatype.org/vuln/b3e3cc9b-766a-4507-9099-51754784a643
+Checking vulnerabilities in 10 dependencies
+Found vulnerabilities in 1 dependencies
+[1/1] - pkg:maven/com.h2database/h2@1.4.197 - 2 vulnerabilities found!
 
-[CVE-2018-14335] An issue was discovered in H2 1.4.197. Insecure handling of permissions in the b... (6.5): https://ossindex.sonatype.org/vuln/d3bb2bf8-2080-4598-997a-51bbed9647fb
-...
-<other dependencies>
-...
-> Task :ossIndexAudit FAILED
-:ossIndexAudit (Thread[Daemon worker,5,main]) completed.
+   Vulnerability Title:  [CVE-2018-10054]  Improper Input Validation
+   ID:  b3e3cc9b-766a-4507-9099-51754784a643
+   Description:  H2 1.4.197, as used in Datomic before 0.9.5697 and other products, allows remote code execution because CREATE ALIAS can execute arbitrar...
+   CVSS Score:  (8.8/10, Critical)
+   CVSS Vector:  CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+   CVE:  CVE-2018-10054
+   Reference:  https://ossindex.sonatype.org/vuln/b3e3cc9b-766a-4507-9099-51754784a643?component-type=maven&component-name=com.h2database.h2&utm_source=ossindex-client&utm_medium=integration&utm_content=1.3.0
+
+
+   Vulnerability Title:  [CVE-2018-14335] An issue was discovered in H2 1.4.197. Insecure handling of permissions in the b...
+   ID:  d3bb2bf8-2080-4598-997a-51bbed9647fb
+   Description:  An issue was discovered in H2 1.4.197. Insecure handling of permissions in the backup function allows attackers to read sensitive files (...
+   CVSS Score:  (6.5/10, High)
+   CVSS Vector:  CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N
+   CVE:  CVE-2018-14335
+   Reference:  https://ossindex.sonatype.org/vuln/d3bb2bf8-2080-4598-997a-51bbed9647fb?component-type=maven&component-name=com.h2database.h2&utm_source=ossindex-client&utm_medium=integration&utm_content=1.3.0
+
 
 FAILURE: Build failed with an exception.
 
@@ -40,7 +50,7 @@ Execution failed for task ':ossIndexAudit'.
 The task fails if there is at least one dependency with vulnerabilities.
 
 #### Nexus IQ Server
-Clone this repo on your machine and from the project's root folder run from Terminal/Console:
+Clone this repo on your machine, replace the values at `build.gradle` in the `nexusIQScan` for you IQ Server access data and from the project's root folder run from Terminal/Console:
 
 `./gradlew nexusIQScan`
 
