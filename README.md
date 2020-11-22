@@ -8,7 +8,7 @@ The file [build.gradle](build.gradle) has a simple Gradle setup applying the plu
 Just apply the plugin on the root project and all sub-modules will be processed and the output will be a single report with all components found in each module, no extra configuration is required. This includes Android projects.
 
 ## Usage examples
-Up next, some examples to configure and run the plugin in several environments or CI tools. Whenever it's possible, first a minimal configuration will be linked to make the plugin run and then a second configuration showing how to leverage cache storing on each CI tool to avoid having to download the Gradle wrapper, dependencies and OSS Index data everytime the job runs.
+Up next, some examples to configure and run the plugin in several environments or CI tools. Whenever it's possible, first a minimal configuration will be linked to make the plugin run and then a second configuration showing how to leverage cache storing on each CI tool to avoid having to download the Gradle wrapper, dependencies and OSS Index data every time the job runs.
 
 ### Locally
 #### OSS Index
@@ -89,12 +89,32 @@ The workflows output can be seen at: https://github.com/guillermo-varela/example
 #### OSS Index
 Minimal configuration: [Jenkinsfile-ossindex](Jenkinsfile-ossindex)
 
+The given configuration produces an output using ANSI escape sequences for coloring.
+The [AnsiColor Jenkins plugin](https://plugins.jenkins.io/ansicolor/) can add support for that or coloring can be disabled in this Gradle plugin using the `colorEnabled` flag in `build.gradle`:
+
+```
+ossIndexAudit {
+  colorEnabled = false
+}
+```
+
 #### Nexus IQ Server
 Minimal configuration: [Jenkinsfile-iq](Jenkinsfile-iq)
 
 Here is the official Jenkins doc explainig how to configure credentials: https://www.jenkins.io/doc/book/using/using-credentials/#configuring-credentials
 
 And how to use them in the pipeline: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#usernames-and-passwords
+
+In the provided Jenkins pipeline script we load the credentials in the variable `IQ_CREDENTIALS` so in `build.gradle` the usage would be:
+
+```
+nexusIQScan {
+  username = System.getenv('IQ_CREDENTIALS_USR')
+  password = System.getenv('IQ_CREDENTIALS_PSW')
+  serverUrl = 'http://your-host:8070'
+  applicationId = 'yourApp'
+}
+```
 
 ## The Fine Print
 This repo is meant for informational purposes, copy-paste at your own risk :)
