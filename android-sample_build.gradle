@@ -1,0 +1,36 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.4.21"
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.sonatype.gradle.plugins:scan-gradle-plugin:2.0.1"
+    }
+}
+
+apply plugin: "org.sonatype.gradle.plugins.scan"
+
+/* Optional: default cache directory varies depending of the OS (user data), this can be done to set a specific path which could be useful for CI
+ossIndexAudit {
+  cacheDirectory = "${System.getProperty('user.home')}/.ossIndexCache"
+} */
+
+nexusIQScan {
+  username = 'yourUsername' // project['yourUsernameProperty'] or System.getenv('yourUsernameProperty') can be used to get sensitive data from project properties or environment variables
+  password = 'yourPassword' // project['yourPasswordProperty'] or System.getenv('yourPasswordProperty') can be used to get sensitive data from project properties or environment variables
+  serverUrl = 'http://your-host:8070'
+  applicationId = 'yourApp'
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+    jcenter()
+  }
+}
