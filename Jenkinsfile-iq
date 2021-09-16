@@ -9,7 +9,7 @@ pipeline {
         IQ_CREDENTIALS = credentials('iq.credentials')
       }
       steps {
-        sh './gradlew nexusIQScan  --no-daemon'
+        sh './gradlew nexusIQScan --no-daemon'
       }
     }
   }
